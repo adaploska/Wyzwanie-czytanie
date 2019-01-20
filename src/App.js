@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import TextImageComponent from "./components/textImageComponent"
 
+
 class App extends Component {
 
   constructor(props) {
@@ -17,6 +18,9 @@ class App extends Component {
       showOn: true,
       showComponent: false,
       disabled: true,
+      textBasedOnInputNr: '',
+      readingNumberOfBook: 0,
+      percent: 0,
     };
 
     this.enableShowSeconPage = this.enableShowSeconPage.bind(this);
@@ -59,6 +63,38 @@ class App extends Component {
 
     });
   }
+  readBookHendler = () => {
+    this.setState((prevState, props) => {
+      return {
+        readingNumberOfBook: prevState.readingNumberOfBook + 1,
+        percent: this.state.number / this.state.readBookHendler
+      }
+
+    })
+    console.log(this.state.percent)
+  }
+  //hendler pokaż zamknij edycję , button zmien 
+  toogleButtonHendler = () => {
+    const doesShowSecondPage = this.state.isSeconPage;
+    const dosesShowFirdPage = this.state.isFirdPage
+    this.setState({
+      isSeconPage: !doesShowSecondPage,
+      isFirdPage: !dosesShowFirdPage,
+
+    })
+
+  }
+
+  //wyjdz z edycji przekieruj na stronę 2
+
+  toogleExitHendler = () => {
+    const doesShowFourthPage = this.state.isFourthPage
+    const doesShowSecondPage = this.state.isSeconPage;
+    this.setState({
+      isSeconPage: !doesShowSecondPage,
+      isFourthPage: !doesShowFourthPage
+    })
+  }
 
   //pobieranie wartosci z input 
   changeContentHandler = (e) => {
@@ -66,8 +102,9 @@ class App extends Component {
     this.setState({
       number: Newnumber
     })
-    console.log(this.state.number)
+
   }
+
   //funkcja zmieniająca slowko ksiązka 
   changeWordHandler = (inputnumber, singularNumber, pluralNumber, pluralNumber_genitive) => {
     inputnumber = Math.abs(this.state.number);
@@ -84,7 +121,7 @@ class App extends Component {
 
     return (
       <form className="containerApp p-3 my-4 text-center pt-5">
-        <button className=" btn btn-lg btn-light " >zamknij</button>
+        <i class="fas fa-times" onClick={this.toogleExitHendler}></i>
         <div>
           To nie ten przycisk!
           Tym się rezygnuje, a przecież
@@ -99,12 +136,53 @@ class App extends Component {
   };
   //trzecia strona 
   firdPagerender() {
+    let changeContent = null;
+    let disabled = this.state.disabled;
+
+    if (this.state.showOn && this.state.number >= 1 && this.state.number <= 4) {
+      changeContent = "Naprawdę? To chyba cel tygodniowy, a nie roczny 😂";
+      disabled = !this.state.disabled;
+
+    }
+    if (this.state.showOn && this.state.number >= 5 && this.state.number <= 9) {
+      changeContent = "To chyba będą baaaardzo grube 📚 książki 😀";
+      disabled = !this.state.disabled;
+    }
+    if (this.state.showOn && this.state.number >= 10 && this.state.number <= 19) {
+      changeContent = "1-2 książki miesięcznie to dobry cel. 👍 Trzymamy kciuki.";
+      disabled = !this.state.disabled;
+    }
+    if (this.state.showOn && this.state.number >= 20 && this.state.number <= 29) {
+      changeContent = "To będzie dobry rok z ksiązką w tle. Powodzenia! 👍";
+      disabled = !this.state.disabled;
+    }
+    if (this.state.showOn && this.state.number >= 30 && this.state.number <= 39) {
+      changeContent = "Hej, świetny wybór. Na pewno Ci się uda! 📚 👍";
+      disabled = !this.state.disabled;
+    }
+    if (this.state.showOn && this.state.number >= 40 && this.state.number <= 59) {
+      changeContent = "Challenge Accepted. Powodzenia! 😎";
+      disabled = !this.state.disabled;
+    }
+    if (this.state.showOn && this.state.number >= 60 && this.state.number <= 79) {
+      changeContent = "No, no, no. Ktoś tu idzie na rekord! 😉";
+      disabled = !this.state.disabled;
+    }
+    if (this.state.showOn && this.state.number >= 80 && this.state.number <= 99) {
+      changeContent = "Jesteś czytelniczym szybkim Billem! Brawo! 👏";
+      disabled = !this.state.disabled;
+    }
+    if (this.state.showOn && this.state.number >= 100) {
+      changeContent = "Wynik marzenie! W sporcie to już waga ciężka. 🏋️ Trzymamy kciuki! ";
+      disabled = !this.state.disabled;
+    }
 
     return (
       <form className="containerApp p-3 my-4 text-center pt-5 ">
-        <button className=" btn btn-lg btn-light " >edycja/zamknij</button>
+        <i class="fas fa-times" font-size="55px" onClick={this.toogleButtonHendler}></i>
+        {/* <button className=" btn btn-lg btn-light " onClick={this.toogleButtonHendler}>edycja/zamknij</button> */}
         <div>
-          {/* <i class="far fa-edit" font-size="55px"></i> */}
+
           <TextImageComponent />
 
           <div>Przeczytam</div>
@@ -112,10 +190,11 @@ class App extends Component {
           <span>{this.changeWordHandler(this.state.number, " książkę", " książki", " książek")}</span>
 
           <span> w 2019 roku!</span>
-          {/* <div>{changeContent}</div> */}
+          <div>{changeContent}</div>
+
           <br />
           <div>
-            <button className=" btn btn-lg btn-light ">zmień</button>
+            <button className=" btn btn-lg btn-light " onClick={this.toogleButtonHendler}>zmień</button>
             <div>lub</div>
             <a href="#" onClick={this.enableShowFourthPage}> Zrezygnuj></a>
           </div>
@@ -128,16 +207,17 @@ class App extends Component {
 
     return (
       <form className="containerApp p-3 my-4 text-center pt-5">
-        <button className=" btn btn-lg btn-light " onClick={this.enableShowFirdPage}>edycja</button>
+        <i class="far fa-edit" font-size="55px" onClick={this.enableShowFirdPage}></i>
+        {/* <button className=" btn btn-lg btn-light " onClick={this.enableShowFirdPage}>edycja</button> */}
         <div>
           <TextImageComponent />
-          <div> Przeczytałeś <span>0 </span> z <span>cc</span> książek w tym roku. </div>
+          <div> Przeczytałeś <span>{this.state.readingNumberOfBook}</span> z <span>{this.state.number}</span> książek w tym roku. </div>
           <div>
             <div className="progress">
-              <div className="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">25</div>
+              <div className="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">25</div>
 
             </div>
-            <span>100%</span>
+            <span>{this.state.percent}%</span>
           </div>
         </div>
       </form>
@@ -215,7 +295,8 @@ class App extends Component {
         {this.state.isSeconPage ? this.seondPagerender() : null}
         {this.state.isFirdPage ? this.firdPagerender() : null}
         {this.state.isFourthPage ? this.fourthPagerender() : null}
-        {/* {this.state.isFirstPage ? this.firstPagerender() : null} */}
+        <div onClick={this.readBookHendler}>książka przeczytana</div>
+
       </div>
     );
   }
