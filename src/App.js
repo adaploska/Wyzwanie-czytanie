@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import TextImageComponent from "./components/textImageComponent"
+
 const iconStyle = {
   fontSize: '48px',
   position: 'absolute',
@@ -10,6 +11,7 @@ const iconStyle = {
   cursor: 'pointer',
   padding: '5px',
 }
+
 class App extends Component {
 
   constructor(props) {
@@ -216,6 +218,9 @@ class App extends Component {
             <div className="progress">
               <div className="progress-bar" style={{ width: this.state.percent + '%' }} ></div>
             </div>
+            <div className="meter">
+            </div>
+            <div className="meter2" style={{ width: this.state.percent + '%' }}></div>
             <span>{this.state.percent}%</span>
           </div>
         </div>
