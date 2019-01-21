@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 
 import './App.css';
 import TextImageComponent from "./components/textImageComponent"
+const iconStyle = {
+  fontSize: '48px',
+  position: 'absolute',
+  top: '26px',
+  right: '15px',
+  cursor: 'pointer',
+  padding: '5px',
+}
 class App extends Component {
 
   constructor(props) {
@@ -60,6 +68,7 @@ class App extends Component {
 
     });
   }
+
   // hendler dodajacy ilosc przeczytanych ksiazke , wyliczanie procetow
   readBookHendler = () => {
     this.setState((prevState, props) => {
@@ -115,9 +124,10 @@ class App extends Component {
   //czwarta strona 
   fourthPagerender() {
 
+
     return (
       <form className="containerApp p-3 my-4 text-center pt-5">
-        <i className="fas fa-times" onClick={this.toogleExitHendler}></i>
+        <i className="fas fa-times " style={iconStyle} onClick={this.toogleExitHendler}></i>
         <div>
           To nie ten przycisk!
           Tym się rezygnuje, a przecież
@@ -174,7 +184,7 @@ class App extends Component {
 
     return (
       <form className="containerApp p-3 my-4 text-center pt-5 ">
-        <i className="fas fa-times" style={{ fontSize: "55px" }} onClick={this.toogleButtonHendler}></i>
+        <i className="fas fa-times" style={iconStyle} onClick={this.toogleButtonHendler}></i>
         <div>
           <TextImageComponent />
           <div>Przeczytam</div>
@@ -198,7 +208,7 @@ class App extends Component {
 
     return (
       <form className="containerApp p-3 my-4 text-center pt-5">
-        <i className="far fa-edit" style={{ fontSize: "55px" }} onClick={this.enableShowFirdPage}></i>
+        <i className="far fa-edit" style={iconStyle} onClick={this.enableShowFirdPage}></i>
         <div>
           <TextImageComponent />
           <div> Przeczytałeś <span>{this.state.readingNumberOfBook}</span> z <span>{this.state.number}</span> książek w tym roku. </div>
@@ -255,6 +265,7 @@ class App extends Component {
       changeContent = "Wynik marzenie! W sporcie to już waga ciężka. 🏋️ Trzymamy kciuki! ";
       disabled = !this.state.disabled;
     }
+
 
     return (
       <form className="containerApp p-3  text-center pt-5 ">

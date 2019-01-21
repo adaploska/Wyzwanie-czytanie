@@ -9,6 +9,8 @@
     background-color: #f74b78;
     color: #fff;
     font-size: 17px;
+   
+    margin: 0 auto
 }
  input{
    border-radius: 5px;
@@ -22,3 +24,11 @@ i:hover{
    font-size: 40px;
 }
 
+.iconStyle  {
+    font-size: 48px;
+    position: absolute;
+    top: 26px;
+    right: 15px;
+    cursor: pointer;
+    padding: 5px;
+  }
