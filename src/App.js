@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 
 import './App.css';
 import TextImageComponent from "./components/textImageComponent"
-
-
 class App extends Component {
 
   constructor(props) {
-    super(props);
-
+    super(props)
     this.state = {
       isSeconPage: false,
       isFirstPage: true,
@@ -18,7 +15,6 @@ class App extends Component {
       showOn: true,
       showComponent: false,
       disabled: true,
-      textBasedOnInputNr: '',
       readingNumberOfBook: 0,
       percent: 0,
     };
@@ -27,8 +23,9 @@ class App extends Component {
     this.enableShowFirdPage = this.enableShowFirdPage.bind(this);
     this.enableShowFourthPage = this.enableShowFourthPage.bind(this);
     this.returnToOnePage = this.returnToOnePage.bind(this);
-  }
+    this.readBookHendler = this.readBookHendler.bind(this);
 
+  }
 
   enableShowSeconPage() {
     this.setState({
@@ -63,26 +60,25 @@ class App extends Component {
 
     });
   }
+  // hendler dodajacy ilosc przeczytanych ksiazke , wyliczanie procetow
   readBookHendler = () => {
     this.setState((prevState, props) => {
       return {
         readingNumberOfBook: prevState.readingNumberOfBook + 1,
-        percent: this.state.number / this.state.readBookHendler
+        percent: Math.round((((this.state.readingNumberOfBook + 1) * 100) / this.state.number)),
       }
-
     })
-    console.log(this.state.percent)
+
   }
-  //hendler pokaż zamknij edycję , button zmien 
+  //hendler pokaż zamknij edycję , button zmien / aktualizacja progresbar i procentów
   toogleButtonHendler = () => {
     const doesShowSecondPage = this.state.isSeconPage;
     const dosesShowFirdPage = this.state.isFirdPage
     this.setState({
       isSeconPage: !doesShowSecondPage,
       isFirdPage: !dosesShowFirdPage,
-
+      percent: Math.round((((this.state.readingNumberOfBook) * 100) / this.state.number)),
     })
-
   }
 
   //wyjdz z edycji przekieruj na stronę 2
@@ -102,7 +98,6 @@ class App extends Component {
     this.setState({
       number: Newnumber
     })
-
   }
 
   //funkcja zmieniająca slowko ksiązka 
@@ -116,12 +111,13 @@ class App extends Component {
       return pluralNumber_genitive;
     return pluralNumber;
   }
+
   //czwarta strona 
   fourthPagerender() {
 
     return (
       <form className="containerApp p-3 my-4 text-center pt-5">
-        <i class="fas fa-times" onClick={this.toogleExitHendler}></i>
+        <i className="fas fa-times" onClick={this.toogleExitHendler}></i>
         <div>
           To nie ten przycisk!
           Tym się rezygnuje, a przecież
@@ -138,7 +134,6 @@ class App extends Component {
   firdPagerender() {
     let changeContent = null;
     let disabled = this.state.disabled;
-
     if (this.state.showOn && this.state.number >= 1 && this.state.number <= 4) {
       changeContent = "Naprawdę? To chyba cel tygodniowy, a nie roczny 😂";
       disabled = !this.state.disabled;
@@ -179,19 +174,15 @@ class App extends Component {
 
     return (
       <form className="containerApp p-3 my-4 text-center pt-5 ">
-        <i class="fas fa-times" font-size="55px" onClick={this.toogleButtonHendler}></i>
-        {/* <button className=" btn btn-lg btn-light " onClick={this.toogleButtonHendler}>edycja/zamknij</button> */}
+        <i className="fas fa-times" font-size="55px" onClick={this.toogleButtonHendler}></i>
         <div>
-
           <TextImageComponent />
-
           <div>Przeczytam</div>
           <input type="number" onChange={this.changeContentHandler} value={this.state.number} required></input>
           <span>{this.changeWordHandler(this.state.number, " książkę", " książki", " książek")}</span>
 
           <span> w 2019 roku!</span>
           <div>{changeContent}</div>
-
           <br />
           <div>
             <button className=" btn btn-lg btn-light " onClick={this.toogleButtonHendler}>zmień</button>
@@ -207,20 +198,18 @@ class App extends Component {
 
     return (
       <form className="containerApp p-3 my-4 text-center pt-5">
-        <i class="far fa-edit" font-size="55px" onClick={this.enableShowFirdPage}></i>
-        {/* <button className=" btn btn-lg btn-light " onClick={this.enableShowFirdPage}>edycja</button> */}
+        <i className="far fa-edit" font-size="55px" onClick={this.enableShowFirdPage}></i>
         <div>
           <TextImageComponent />
           <div> Przeczytałeś <span>{this.state.readingNumberOfBook}</span> z <span>{this.state.number}</span> książek w tym roku. </div>
           <div>
             <div className="progress">
-              <div className="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">25</div>
-
+              <div className="progress-bar" style={{ width: this.state.percent + '%' }} ></div>
             </div>
             <span>{this.state.percent}%</span>
           </div>
         </div>
-      </form>
+      </form >
     );
   };
   // pierwsza strona wyzwanie 
@@ -296,7 +285,6 @@ class App extends Component {
         {this.state.isFirdPage ? this.firdPagerender() : null}
         {this.state.isFourthPage ? this.fourthPagerender() : null}
         <div onClick={this.readBookHendler}>książka przeczytana</div>
-
       </div>
     );
   }

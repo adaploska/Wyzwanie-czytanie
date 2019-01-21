@@ -5,7 +5,7 @@ class TextImageComponent extends React.Component {
         return (
             <div>
                 <h1>Wyzwanie - Czytanie!</h1>
-                <img alt="book image" src="/ksiazka.svg" width="150"></img>
+                <img alt="book" src="/ksiazka.svg" width="150"></img>
             </div>
 
 
