@@ -34,9 +34,9 @@ i:hover{
   }
 
   .meter { 
-	height: 40px; 
+	height: 84px; 
 	position: relative;
-  background-image: url(./progress-bw-light-96d82c64f20a376f32b16285193cbf0f.svg);
+  background-image: url(./progress-bw-light.svg);
   background-repeat: no-repeat;
   background-size: cover;
 	padding: 10px;
@@ -45,14 +45,15 @@ i:hover{
 .meter2 {
  
   display: block;
-    height: 40px;
-    border: 1px solid red;
-    background-image: url(./progress-color-69e8606201e12e0c1eb64c28a3acf414.svg);
-   position: absolute;
-   left: 5px;
-   top:320px;
-    background-repeat: repeat-x;
-    background-size: cover;
-    overflow: hidden;
+  min-width: 0%;
+  height:84px;
+  max-width: 100%;
+  background-image: url(./progress-color.svg);
+  position: absolute;
+  left: 0px;
+  top:0px;
+  background-repeat: repeat-x;
+  background-size: cover;
+  overflow: hidden;
     
 }

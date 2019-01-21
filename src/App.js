@@ -215,12 +215,13 @@ class App extends Component {
           <TextImageComponent />
           <div> Przeczytałeś <span>{this.state.readingNumberOfBook}</span> z <span>{this.state.number}</span> książek w tym roku. </div>
           <div>
-            <div className="progress">
+            {/* <div className="progress">
               <div className="progress-bar" style={{ width: this.state.percent + '%' }} ></div>
-            </div>
+            </div> */}
             <div className="meter">
+              <div className="meter2" style={{ width: this.state.percent + '%' }}></div>
             </div>
-            <div className="meter2" style={{ width: this.state.percent + '%' }}></div>
+
             <span>{this.state.percent}%</span>
           </div>
         </div>
