@@ -174,7 +174,7 @@ class App extends Component {
 
     return (
       <form className="containerApp p-3 my-4 text-center pt-5 ">
-        <i className="fas fa-times" font-size="55px" onClick={this.toogleButtonHendler}></i>
+        <i className="fas fa-times" style={{ fontSize: "55px" }} onClick={this.toogleButtonHendler}></i>
         <div>
           <TextImageComponent />
           <div>Przeczytam</div>
@@ -198,7 +198,7 @@ class App extends Component {
 
     return (
       <form className="containerApp p-3 my-4 text-center pt-5">
-        <i className="far fa-edit" font-size="55px" onClick={this.enableShowFirdPage}></i>
+        <i className="far fa-edit" style={{ fontSize: "55px" }} onClick={this.enableShowFirdPage}></i>
         <div>
           <TextImageComponent />
           <div> Przeczytałeś <span>{this.state.readingNumberOfBook}</span> z <span>{this.state.number}</span> książek w tym roku. </div>
