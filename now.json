@@ -1,8 +1,1 @@
-{
-    "version": 2,
-    "name": "create-react-app",
-    "builds": [
-        { "src": "package.json", "use": "@now/static-build" }
-    ]
-    
-}
+{}
