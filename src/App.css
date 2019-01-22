@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 .containerApp {
@@ -34,7 +34,7 @@ i:hover{
   }
 
   .meter { 
-	height: 84px; 
+	height: 48px; 
 	position: relative;
   background-image: url(./progress-bw-light.svg);
   background-repeat: no-repeat;
@@ -46,7 +46,7 @@ i:hover{
  
   display: block;
   min-width: 0%;
-  height:84px;
+  height:103%;
   max-width: 100%;
   background-image: url(./progress-color.svg);
   position: absolute;
@@ -56,4 +56,96 @@ i:hover{
   background-size: cover;
   overflow: hidden;
     
+}
+@media only screen and (min-width: 768px) {
+  .meter{
+    height: 48px
+  }
+  .meter2{
+    
+    position: absolute;
+    height: 100%;
+    top:0px;
+    background-origin: inherit;
+  }
+}
+@media only screen and (min-width: 921px){
+  .meter{
+    height: 64px
+  }
+  
+}
+@media only screen and (min-width: 881px)and (max-width: 920px){
+  .meter{
+    height: 54px
+  }
+  
+}
+@media only screen and (min-width: 850px)and (max-width: 880px){
+  .meter{
+    height: 50px
+  }
+  
+}
+
+@media only screen and (min-width: 753px)and (max-width: 782px){
+  .meter{
+    height: 45px
+  }
+  
+}
+@media only screen and (min-width: 721px) and (max-width: 752px) {
+  .meter{
+    height: 45px
+  }
+  
+}
+@media only screen and (min-width: 671px) and (max-width: 720px) {
+  .meter{
+    height: 41px
+  }
+  
+}
+@media only screen and (min-width: 621px) and (max-width: 670px) {
+  .meter{
+    height: 38px
+  }
+  
+}
+@media only screen and (min-width: 591px) and (max-width: 620px) {
+  .meter{
+    height: 35px
+  }
+  
+}
+@media only screen and (min-width: 531px) and (max-width: 590px) {
+  .meter{
+    height: 34px
+  }
+  
+}
+@media only screen and (min-width: 491px) and (max-width: 530px) {
+  .meter{
+    height: 30px
+  }
+  
+}
+@media only screen and (min-width: 461px) and (max-width: 490px) {
+  .meter{
+    height: 28px
+  }
+  
+}
+
+@media only screen and (min-width: 361px) and (max-width: 460px) {
+  .meter{
+    height: 22px
+  }
+  
+}
+@media only screen and (max-width: 360px) {
+  .meter{
+    height: 21px
+  }
+  
 }
