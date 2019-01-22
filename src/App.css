@@ -34,7 +34,7 @@ i:hover{
   }
 
   .meter { 
-	height: 48px; 
+	height: 85px; 
 	position: relative;
   background-image: url(./progress-bw-light.svg);
   background-repeat: no-repeat;
@@ -46,7 +46,7 @@ i:hover{
  
   display: block;
   min-width: 0%;
-  height:103%;
+  height:100%;
   max-width: 100%;
   background-image: url(./progress-color.svg);
   position: absolute;
@@ -57,7 +57,7 @@ i:hover{
   overflow: hidden;
     
 }
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
   .meter{
     height: 48px
   }
@@ -68,10 +68,35 @@ i:hover{
     top:0px;
     background-origin: inherit;
   }
+} */
+@media screen and (min-width: 1201px) and (max-width: 1280px){
+  .meter{
+    height: 73px
+  }
+  
 }
-@media only screen and (min-width: 921px){
+@media screen and (min-width: 1116px) and (max-width: 1200px){
+  .meter{
+    height: 69px
+  }
+  
+}
+@media screen and (min-width: 1063px) and (max-width: 1115px){
   .meter{
     height: 64px
+  }
+  
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1062px){
+  .meter{
+    height: 62px
+  }
+  
+}
+@media only screen and (min-width: 921px)and (max-width: 1000px){
+  .meter{
+    height: 56px
   }
   
 }
@@ -96,7 +121,7 @@ i:hover{
 }
 @media only screen and (min-width: 721px) and (max-width: 752px) {
   .meter{
-    height: 45px
+    height: 43px
   }
   
 }
@@ -120,7 +145,7 @@ i:hover{
 }
 @media only screen and (min-width: 531px) and (max-width: 590px) {
   .meter{
-    height: 34px
+    height: 32px
   }
   
 }
