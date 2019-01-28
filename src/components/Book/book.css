@@ -1,0 +1,83 @@
+.mainContainerWereBuy{
+    border: 1px solid black;
+    position: relative;
+    width: 300px;
+    cursor: pointer;
+}
+.shopIcon {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: 24px;
+    top: 19px;
+}
+.popup{
+  position: fixed;
+  width: 100%;
+  height: 100%;   
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0,0,0, 0.5);
+  
+  
+  }
+
+  .popup_inner {
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  margin: auto;
+  background: white;
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+}
+.iconStyle  {
+    font-size: 19px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+    padding: 5px;
+    color: black;
+}
+i:hover{
+    font-size: 19px;
+}
+.col-sm{
+    border: 1px solid red;
+  
+}
+.row{
+    border-bottom:1px dashed lightgrey;
+    padding: 1%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.info-header{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.info-body{
+    min-height: 60vh;
+    max-height: calc(100vh - 600px);
+    overflow-y: auto;
+}
+.logo{
+    margin-right: 5%;
+    width: 11%;
+    float: left;
+}
+.book-price{
+    color: #f74b78;
+    font-weight: bold;
+    display: inline-flex;
+}
+.go-shop{
+    float: right;
+
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import TextImageComponent from "./components/textImageComponent"
-
+import WereBuyBook from "./components/Book/WereBuyBook"
 const iconStyle = {
   fontSize: '48px',
   position: 'absolute',
@@ -145,43 +145,43 @@ class App extends Component {
   //trzecia strona 
   firdPagerender() {
     let changeContent = null;
-    let disabled = this.state.disabled;
+    // let disabled = this.state.disabled;
     if (this.state.showOn && this.state.number >= 1 && this.state.number <= 4) {
       changeContent = "Naprawdę? To chyba cel tygodniowy, a nie roczny 😂";
-      disabled = !this.state.disabled;
+      // disabled = !this.state.disabled;
 
     }
     if (this.state.showOn && this.state.number >= 5 && this.state.number <= 9) {
       changeContent = "To chyba będą baaaardzo grube 📚 książki 😀";
-      disabled = !this.state.disabled;
+      // disabled = !this.state.disabled;
     }
     if (this.state.showOn && this.state.number >= 10 && this.state.number <= 19) {
       changeContent = "1-2 książki miesięcznie to dobry cel. 👍 Trzymamy kciuki.";
-      disabled = !this.state.disabled;
+      // disabled = !this.state.disabled;
     }
     if (this.state.showOn && this.state.number >= 20 && this.state.number <= 29) {
       changeContent = "To będzie dobry rok z ksiązką w tle. Powodzenia! 👍";
-      disabled = !this.state.disabled;
+      // disabled = !this.state.disabled;
     }
     if (this.state.showOn && this.state.number >= 30 && this.state.number <= 39) {
       changeContent = "Hej, świetny wybór. Na pewno Ci się uda! 📚 👍";
-      disabled = !this.state.disabled;
+      // disabled = !this.state.disabled;
     }
     if (this.state.showOn && this.state.number >= 40 && this.state.number <= 59) {
       changeContent = "Challenge Accepted. Powodzenia! 😎";
-      disabled = !this.state.disabled;
+      // disabled = !this.state.disabled;
     }
     if (this.state.showOn && this.state.number >= 60 && this.state.number <= 79) {
       changeContent = "No, no, no. Ktoś tu idzie na rekord! 😉";
-      disabled = !this.state.disabled;
+      // disabled = !this.state.disabled;
     }
     if (this.state.showOn && this.state.number >= 80 && this.state.number <= 99) {
       changeContent = "Jesteś czytelniczym szybkim Billem! Brawo! 👏";
-      disabled = !this.state.disabled;
+      // disabled = !this.state.disabled;
     }
     if (this.state.showOn && this.state.number >= 100) {
       changeContent = "Wynik marzenie! W sporcie to już waga ciężka. 🏋️ Trzymamy kciuki! ";
-      disabled = !this.state.disabled;
+      // disabled = !this.state.disabled;
     }
 
     return (
@@ -302,6 +302,7 @@ class App extends Component {
         {this.state.isFirdPage ? this.firdPagerender() : null}
         {this.state.isFourthPage ? this.fourthPagerender() : null}
         <div onClick={this.readBookHendler}>książka przeczytana</div>
+        <WereBuyBook />
       </div>
     );
   }
