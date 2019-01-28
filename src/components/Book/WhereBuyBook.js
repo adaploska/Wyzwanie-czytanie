@@ -5,7 +5,7 @@ import Info from "./InfoBook"
 import axios from "axios"
 let name = "Tylko jedno spojrzenie"
 let ISBN = 9788376867243;
-let logoArray = []
+let dataArray = []
 class WereBuyBook extends Component {
     constructor(props) {
         super(props)
@@ -18,11 +18,8 @@ class WereBuyBook extends Component {
         axios.get(`https://widget.getbuybox.com/v3/4542/buybox.json?name=${name}&number[0]=${ISBN}&skip_jQuery=1&fbclid=IwAR1ldKGKRykasxFRPkqJBAmiH6kq22-QVz02uQJ2E7SgJ26_RNIwKp8G5dU`)
             .then(response => {
                 for (var i in response.data.data) {
-                    logoArray.push(response.data.data[i])
+                    dataArray.push(response.data.data[i])
                 }
-                console.log(logoArray)
-                console.log(logoArray[1])
-
             })
             .catch(function (error) {
                 console.log(error);
@@ -38,11 +35,11 @@ class WereBuyBook extends Component {
 
     }
     render() {
-        console.log(logoArray)
+        console.log(dataArray)
         let buyBook = null;
         if (this.state.show) {
             buyBook =
-                <Info click={this.ToogoleWereBuyClickHendler} logoArray={logoArray} />;
+                <Info click={this.ToogoleWereBuyClickHendler} dataArray={dataArray} />;
         }
         return <div className="my-4 text-left pt-5">
             <div onClick={this.ToogoleWereBuyClickHendler} className="p-3 my-4 mainContainerWereBuy">

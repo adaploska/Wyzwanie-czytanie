@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import TextImageComponent from "./components/textImageComponent"
-import WereBuyBook from "./components/Book/WereBuyBook"
+import WhereBuyBook from "./components/Book/WhereBuyBook"
 const iconStyle = {
   fontSize: '48px',
   position: 'absolute',
@@ -302,7 +302,7 @@ class App extends Component {
         {this.state.isFirdPage ? this.firdPagerender() : null}
         {this.state.isFourthPage ? this.fourthPagerender() : null}
         <div onClick={this.readBookHendler}>książka przeczytana</div>
-        <WereBuyBook />
+        <WhereBuyBook />
       </div>
     );
   }
