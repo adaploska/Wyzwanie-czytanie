@@ -37,6 +37,14 @@
             "dest": "/components/textImageComponent.js"
         },
         {
+            "src": "^/components/Book/InfoBook.js",
+            "dest": "/components/Book/InfoBook.js"
+        },
+        {
+            "src": "^/components/Book/WhereBuyBook.js",
+            "dest": "/components/Book/WhereBuyBook.js"
+        },
+        {
             "src": "^/service-worker.js",
             "headers": {
                 "cache-control": "s-maxage=0"
